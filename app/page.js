@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-teal-100 w-full flex flex-col justify-center items-center">
       <Header />
-      <div className="bg-gray-50 w-4/5 flex flex-col justify-center items-center py-2 min-h-screen">
+      <div className="bg-gray-50 w-4/5 flex flex-col justify-center items-center p-y-2 min-h-screen">
         Hello Again. Welcome to wedbev class. I am changing a bunch of things to
         demonstrate ci/cd. Continous integration, continous deployment.
       </div>
