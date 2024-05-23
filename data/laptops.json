@@ -1,0 +1,68 @@
+[
+  {
+    "name": "lg gram",
+    "memory": "16 gb",
+    "storage": "500 gb",
+    "screensize": 16
+  },
+  {
+    "name": "macbook air",
+    "memory": "32 gb",
+    "storage": "512 gb",
+    "screensize": 26
+  },
+  {
+    "name": "hp pavilion",
+    "memory": "8 gb",
+    "storage": "256 gb",
+    "screensize": 16
+  },
+  {
+    "name": "dell xps",
+    "memory": "16 gb",
+    "storage": "1 tb",
+    "screensize": 15
+  },
+  {
+    "name": "lenovo thinkpad",
+    "memory": "32 gb",
+    "storage": "1 tb",
+    "screensize": 14
+  },
+  {
+    "name": "asus zenbook",
+    "memory": "16 gb",
+    "storage": "512 gb",
+    "screensize": 13
+  },
+  {
+    "name": "acer swift",
+    "memory": "8 gb",
+    "storage": "512 gb",
+    "screensize": 14
+  },
+  {
+    "name": "microsoft surface laptop",
+    "memory": "16 gb",
+    "storage": "256 gb",
+    "screensize": 13.5
+  },
+  {
+    "name": "samsung galaxy book",
+    "memory": "16 gb",
+    "storage": "1 tb",
+    "screensize": 15.6
+  },
+  {
+    "name": "razer blade",
+    "memory": "32 gb",
+    "storage": "1 tb",
+    "screensize": 17
+  },
+  {
+    "name": "alienware m15",
+    "memory": "16 gb",
+    "storage": "1 tb",
+    "screensize": 15.6
+  }
+]
