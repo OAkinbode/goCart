@@ -3,66 +3,88 @@
     "name": "lg gram",
     "memory": "16 gb",
     "storage": "500 gb",
-    "screensize": 16
+    "screensize": 16,
+    "pictureUrl": "https://example.com/lg-gram.jpg",
+    "price": 1200
   },
   {
     "name": "macbook air",
     "memory": "32 gb",
     "storage": "512 gb",
-    "screensize": 26
+    "screensize": 26,
+    "pictureUrl": "https://example.com/macbook-air.jpg",
+    "price": 1500
   },
   {
     "name": "hp pavilion",
     "memory": "8 gb",
     "storage": "256 gb",
-    "screensize": 16
+    "screensize": 16,
+    "pictureUrl": "https://example.com/hp-pavilion.jpg",
+    "price": 800
   },
   {
     "name": "dell xps",
     "memory": "16 gb",
     "storage": "1 tb",
-    "screensize": 15
+    "screensize": 15,
+    "pictureUrl": "https://example.com/dell-xps.jpg",
+    "price": 1300
   },
   {
     "name": "lenovo thinkpad",
     "memory": "32 gb",
     "storage": "1 tb",
-    "screensize": 14
+    "screensize": 14,
+    "pictureUrl": "https://example.com/lenovo-thinkpad.jpg",
+    "price": 1400
   },
   {
     "name": "asus zenbook",
     "memory": "16 gb",
     "storage": "512 gb",
-    "screensize": 13
+    "screensize": 13,
+    "pictureUrl": "https://example.com/asus-zenbook.jpg",
+    "price": 1100
   },
   {
     "name": "acer swift",
     "memory": "8 gb",
     "storage": "512 gb",
-    "screensize": 14
+    "screensize": 14,
+    "pictureUrl": "https://example.com/acer-swift.jpg",
+    "price": 900
   },
   {
     "name": "microsoft surface laptop",
     "memory": "16 gb",
     "storage": "256 gb",
-    "screensize": 13.5
+    "screensize": 13.5,
+    "pictureUrl": "https://example.com/microsoft-surface-laptop.jpg",
+    "price": 1200
   },
   {
     "name": "samsung galaxy book",
     "memory": "16 gb",
     "storage": "1 tb",
-    "screensize": 15.6
+    "screensize": 15.6,
+    "pictureUrl": "https://example.com/samsung-galaxy-book.jpg",
+    "price": 1300
   },
   {
     "name": "razer blade",
     "memory": "32 gb",
     "storage": "1 tb",
-    "screensize": 17
+    "screensize": 17,
+    "pictureUrl": "https://example.com/razer-blade.jpg",
+    "price": 1800
   },
   {
     "name": "alienware m15",
     "memory": "16 gb",
     "storage": "1 tb",
-    "screensize": 15.6
+    "screensize": 15.6,
+    "pictureUrl": "https://example.com/alienware-m15.jpg",
+    "price": 1700
   }
 ]
