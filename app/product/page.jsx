@@ -4,21 +4,21 @@ import { useState, useEffect } from "react";
 import ComputerDetails from "@/components/computer_details";
 
 const Product = () => {
-  const paramsObj = useSearchParams();
-  const param = paramsObj.get("computerScreen");
+  // const paramsObj = useSearchParams();
+  // const param = paramsObj.get("computerScreen");
 
   const [name, setName] = useState("");
   const [computer, setComputer] = useState(null);
 
   useEffect(() => {
-    const details = localStorage.getItem("computerDetails");
+    const details = localStorage.getItem("electronics");
     const detailsObj = JSON.parse(details);
-    setComputer({ ...detailsObj });
+    setComputer(detailsObj);
   }, []);
 
-  useEffect(() => {
-    console.log("This is the name: ", computer);
-  }, [computer]);
+  // useEffect(() => {
+  //   console.log("This is the name: ", computer);
+  // }, [computer]);
 
   const handleChange = (event) => {
     setName(event.target.value);

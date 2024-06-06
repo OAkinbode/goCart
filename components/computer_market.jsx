@@ -9,7 +9,24 @@ import laptop_json from "@/data/laptops.json";
 const ComputerMarket = ({ computer }) => {
   const [showProductDetails, setShowProductDetails] = useState(false);
   const [activeProduct, setActiveProduct] = useState(-1);
+  const [dummyData, setDummyData] = useState(null);
+  const [electronics, setElectronics] = useState(null);
   const router = useRouter();
+
+  useState(() => {
+    if (!dummyData) {
+      getDummyData();
+    }
+  }, []);
+
+  useState(() => {
+    if (dummyData) {
+      let electronicsData = dummyData.filter(
+        (item) => item.category === "electronics"
+      );
+      setElectronics(electronicsData);
+    }
+  }, [dummyData]);
 
   const handleBuyClick = (index) => {
     setShowProductDetails(true);
@@ -17,32 +34,61 @@ const ComputerMarket = ({ computer }) => {
   };
 
   const handleDetailsClick = (comp) => {
-    localStorage.setItem("computerDetails", JSON.stringify(comp));
+    // const payload = { electronics: electronics };
+    localStorage.setItem("electronics", JSON.stringify(comp));
   };
 
+  const sortProducts = (products) => {
+    const newProducts = [...products];
+    return newProducts.sort((a, b) => a.title.localeCompare(b.title));
+  };
+
+  const sortProductsByPrice = (products) => {
+    const newProducts = [...products];
+    return newProducts.sort((a, b) => a.price - b.price);
+  };
+
+  async function getDummyData() {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => {
+        setDummyData(json);
+        const electronicsData = json.filter(
+          (item) => item.category === "electronics"
+        );
+        const sortedElectronicsData = sortProducts(electronicsData);
+        console.log("sorted data: ", electronicsData);
+        setElectronics(sortedElectronicsData);
+      });
+  }
+
   return (
-    <div className="w-full">
-      {laptop_json &&
-        laptop_json.map((comp, index) => (
+    <div className="w-full bg-teal-100">
+      {!electronics ? (
+        <div>loading</div>
+      ) : (
+        electronics.map((comp, index) => (
           <div key={index} className=" flex flex-col">
             <div className="p-2 border border-gray-600 shadow-md my-2 ml-2  w-full rounded-md bg-white flex">
-              <div className="w-1/3 flex items-center justify-center">
+              <div className="w-1/3 min-w-1/3 flex items-center justify-center">
                 <Image
-                  src={`/${
-                    comp.name === "hp pavilion" ? "hp.avif" : "screen.webp"
-                  }`}
+                  src={comp.image}
                   alt="computer"
                   width={200}
                   height={200}
                 />
               </div>
-              <div className="bg-[#e7f3f3] flex-grow rounded-md shadow-md p-2">
-                <div className="text-lg text-[#008080]">{comp.name}</div>
-                <div>{comp.memory}</div>
-                <div>{comp.storage}</div>
-                <div>{comp.screensize} inches</div>
+              <div className="bg-[#e7f3f3] flex-grow rounded-md shadow-md p-2 max-w-1/2 w-1/2">
+                <div className="text-lg text-[#008080]">{comp.title}</div>
+                <div className="my-2">
+                  <span className="text-teal-700">Category:</span>{" "}
+                  {comp.category}
+                </div>
+                <div className="text-right text-lg text-gray-600">
+                  $ {comp.price}
+                </div>
               </div>
-              <div className="w-1/6 flex flex-col">
+              <div className="w-1/6 max-w-1/6 flex flex-col">
                 <button
                   className="p-1 m-2 border border-gray-500 rounded-md shadow-md bg-[#008080] text-gray-50 hover:bg-green-700"
                   onClick={() => {
@@ -52,7 +98,7 @@ const ComputerMarket = ({ computer }) => {
                   Buy
                 </button>
                 <Link
-                  href={`/product?computerName=${comp.name}&computerScreen=${comp.screensize}`}
+                  href="/product"
                   className="p-1 m-2 border border-gray-500 rounded-md shadow-md bg-[#008080] text-gray-50 hover:bg-green-700 text-center"
                   onClick={() => handleDetailsClick(comp)}
                 >
@@ -82,7 +128,8 @@ const ComputerMarket = ({ computer }) => {
               </div>
             )} */}
           </div>
-        ))}
+        ))
+      )}
     </div>
   );
 };
