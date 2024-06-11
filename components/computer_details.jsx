@@ -1,10 +1,28 @@
 import Image from "next/image";
+import { useState } from "react";
+import CreditCardModal from "./get_creditcard_details";
 
 const ComputerDetails = ({ computer }) => {
-  console.log("computer: ", computer);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleBuyClick = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const onSubmitModal = (data) => {
+    console.log("Data: ", data);
+  };
 
   return (
     <div>
+      <CreditCardModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        onSubmit={onSubmitModal}
+      />
       <div className="p-2 border border-gray-600 rounded-md m-2">
         {computer && (
           <div className=" flex">
@@ -23,8 +41,18 @@ const ComputerDetails = ({ computer }) => {
                 </div>
                 <div className="p-2">{computer.description}.</div>
               </div>
-              <div className="p-2 text-right text-lg text-teal-700 font-semibold">
-                ${computer.price}
+              <div className="p-2 text-right text-lg text-teal-700 font-semibold flex items-center justify-between">
+                <div>
+                  <button
+                    onClick={() => {
+                      handleBuyClick();
+                    }}
+                    className="border border-gray-700 bg-teal-700 shadow-md rounded-md hover:bg-green-800 text-gray-50 p-2"
+                  >
+                    Button
+                  </button>
+                </div>
+                <div> ${computer.price}</div>
               </div>
             </div>
           </div>
