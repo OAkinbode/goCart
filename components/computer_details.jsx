@@ -49,7 +49,7 @@ const ComputerDetails = ({ computer }) => {
                     }}
                     className="border border-gray-700 bg-teal-700 shadow-md rounded-md hover:bg-green-800 text-gray-50 p-2"
                   >
-                    Button
+                    Buy now
                   </button>
                 </div>
                 <div> ${computer.price}</div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -25,6 +28,8 @@ export default function Home() {
   };
 
   const computerParts = [lg, macbook, hp];
+
+  const [checkoutItems, setCheckoutItems] = useState([]);
 
   return (
     <main className="min-h-screen bg-teal-100 w-full flex flex-col justify-center items-center">

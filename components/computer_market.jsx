@@ -11,6 +11,7 @@ const ComputerMarket = ({ computer }) => {
   const [activeProduct, setActiveProduct] = useState(-1);
   const [dummyData, setDummyData] = useState(null);
   const [electronics, setElectronics] = useState(null);
+  const [checkoutItems, setCheckoutItems] = useState([]);
   const router = useRouter();
 
   useState(() => {
@@ -38,6 +39,17 @@ const ComputerMarket = ({ computer }) => {
     localStorage.setItem("electronics", JSON.stringify(comp));
   };
 
+  const handleAddToCheckout = (index) => {
+    const newItem = electronics[index];
+    console.log("newItem", newItem);
+    setCheckoutItems([...checkoutItems, newItem]);
+    // setCheckoutItems([...checkoutItems, newItem]);
+    // const existing = localStorage.getItem("checkout");
+    // const fullData = JSON.stringify([...existing, newItem]);
+    // console.log("item: ", newItem);
+    // localStorage.setItem("checkout", fullData);
+  };
+
   const sortProducts = (products) => {
     const newProducts = [...products];
     return newProducts.sort((a, b) => a.title.localeCompare(b.title));
@@ -57,7 +69,7 @@ const ComputerMarket = ({ computer }) => {
           (item) => item.category === "electronics"
         );
         const sortedElectronicsData = sortProducts(electronicsData);
-        console.log("sorted data: ", electronicsData);
+        // console.log("sorted data: ", electronicsData);
         setElectronics(sortedElectronicsData);
       });
   }
@@ -105,7 +117,10 @@ const ComputerMarket = ({ computer }) => {
                   Details
                 </Link>
 
-                <button className="p-1 m-2 border border-[#008080] rounded-md shadow-md bg-[#b2d8d8] text-gray-50 hover:bg-green-700">
+                <button
+                  className="p-1 m-2 border border-[#008080] rounded-md shadow-md bg-teal-600 text-gray-50 hover:bg-green-700 text-center"
+                  onClick={() => handleAddToCheckout(index)}
+                >
                   Checkout
                 </button>
               </div>
