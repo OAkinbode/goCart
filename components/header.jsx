@@ -1,14 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CheckoutModal from "./checkout_modal";
 
 const Header = () => {
   const [controlCheckout, setControlCheckout] = useState(false);
+  const [data, setData] = useState([]);
+
+  const getData = () => {
+    const details = localStorage.getItem("checkout");
+    setData(JSON.parse(details));
+  };
 
   const handleControlCheckoutModal = () => {
-    setControlCheckout(true);
+    setControlCheckout(!controlCheckout);
+    getData();
   };
 
   const onClose = () => {
@@ -16,7 +23,7 @@ const Header = () => {
   };
   return (
     <header className="flex items-center justify-between p-4 bg-gray-100 shadow-md w-full">
-      <CheckoutModal isOpen={controlCheckout} onClose={onClose} />
+      <CheckoutModal isOpen={controlCheckout} onClose={onClose} data={data} />
       <div className="mr-4 ">
         <Image
           src="/profile.jpeg"

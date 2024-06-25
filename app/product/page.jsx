@@ -1,7 +1,8 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import ComputerDetails from "@/components/computer_details";
+// import ComputerDetails from "@/components/computer_details";
+import ComputerDetails from "../../components/computer_details";
 
 const Product = () => {
   // const paramsObj = useSearchParams();

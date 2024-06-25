@@ -20,7 +20,28 @@ const CreditCardModal = ({ isOpen, onClose, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
-    onClose();
+    makePayment();
+    // onClose();
+  };
+
+  const makePayment = async () => {
+    const url = "/api/stripe_payment";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authentication: "Bearer esw4tv4wv3wetv3w4wvwewrt342522",
+      },
+      body: JSON.stringify(formData),
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      console.log("payment data: ", data);
+    } catch (error) {
+      console.error("Error making payment: ", error);
+    }
   };
 
   if (!isOpen) return null;

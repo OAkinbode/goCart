@@ -13,7 +13,7 @@ const ComputerDetails = ({ computer }) => {
     setIsOpen(false);
   };
   const onSubmitModal = (data) => {
-    console.log("Data: ", data);
+    // console.log("Data: ", data);
   };
 
   return (
@@ -25,16 +25,16 @@ const ComputerDetails = ({ computer }) => {
       />
       <div className="p-2 border border-gray-600 rounded-md m-2">
         {computer && (
-          <div className=" flex">
-            <div className="w-1/2">
+          <div className=" flex flex-col md:flex-row">
+            <div className="w-full md:w-1/2">
               <Image
                 src={computer.image}
                 alt="computer"
-                width={600}
-                height={600}
+                width={800}
+                height={800}
               />
             </div>
-            <div className="flex flex-col w-1/2 justify-between">
+            <div className="flex flex-col w-full md:w-1/2 justify-between">
               <div className="p-2 text-sm">
                 <div className="bg-teal-700 text-gray-100 p-2 text-lg">
                   Product description

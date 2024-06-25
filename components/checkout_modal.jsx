@@ -1,16 +1,8 @@
 "use Client";
 import { useState, useEffect } from "react";
 
-const CheckoutModal = ({ isOpen, onClose }) => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    // const details = localStorage.getItem("checkout");
-    // const checkoutObj = JSON.parse(details);
-    // console.log("checkout object: ", checkoutObj);
-    // setData(checkoutObj);
-  }, []);
-
+const CheckoutModal = ({ isOpen, onClose, data }) => {
+  console.log("data: ", data);
   if (!isOpen) return null;
 
   return (
@@ -42,6 +34,7 @@ const CheckoutModal = ({ isOpen, onClose }) => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200 w-full">
             {data &&
+              data.length > 0 &&
               data.map((item) => (
                 <tr key={item.title}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

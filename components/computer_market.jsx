@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 
-import laptop_json from "@/data/laptops.json";
+// import laptop_json from "@/data/laptops.json";
 
 const ComputerMarket = ({ computer }) => {
   const [showProductDetails, setShowProductDetails] = useState(false);
@@ -14,13 +14,19 @@ const ComputerMarket = ({ computer }) => {
   const [checkoutItems, setCheckoutItems] = useState([]);
   const router = useRouter();
 
-  useState(() => {
+  useEffect(() => {
     if (!dummyData) {
       getDummyData();
     }
   }, []);
 
-  useState(() => {
+  useEffect(() => {
+    console.log("checkout items: ", checkoutItems);
+    if (checkoutItems) {
+    }
+  }, [checkoutItems]);
+
+  useEffect(() => {
     if (dummyData) {
       let electronicsData = dummyData.filter(
         (item) => item.category === "electronics"
@@ -41,13 +47,12 @@ const ComputerMarket = ({ computer }) => {
 
   const handleAddToCheckout = (index) => {
     const newItem = electronics[index];
-    console.log("newItem", newItem);
-    setCheckoutItems([...checkoutItems, newItem]);
-    // setCheckoutItems([...checkoutItems, newItem]);
+    const newArray = [...checkoutItems, newItem];
+    setCheckoutItems(newArray);
     // const existing = localStorage.getItem("checkout");
     // const fullData = JSON.stringify([...existing, newItem]);
     // console.log("item: ", newItem);
-    // localStorage.setItem("checkout", fullData);
+    localStorage.setItem("checkout", JSON.stringify(newArray));
   };
 
   const sortProducts = (products) => {
